@@ -1,0 +1,13 @@
+### Emacs ###
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+
+#Build Results
+*.o
+*.d
+*.eep
+*.elf
+*.hex
+*.map
+*.srec

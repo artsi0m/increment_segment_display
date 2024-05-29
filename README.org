@@ -1,0 +1,49 @@
+* INC_SEG_LED_ASM_UNIX
+
+This project is an attempt to port solution from atmel studio to
+traditional +emacs+ unix (OpenBSD) environment + plus switch to lower frequency
+of MCU.
+
+
+Original solution was an assembly project created in Atmel Studio and
+flashed on Atmega16 on Pinboard2 Rev 2. It used one of the atmega
+timers, and port d to supply data into 7seg display.  It is important
+to note, that in original solution frequency of 8MHz was used and on
+gas version I will try to change it to 1Mhz. 8bit Timer/Counter1 was
+used.
+
+** Files
+| File     | Description            |
+| main.asm | File from Atmel studio |
+
+
+
+** Table of MCU frequency, OCR1A value and fusebits for avrdude
+
+OCR1A — output control register for timer counter 1.
+
+| freq  |   dec |    hex | fusebits (xHL) |
+| 8 Mhz | 31250 | 0x7A12 |         0xE4D9 |
+| 2 Mhz |  7813 | 0x1E85 |         0xE2D9 |
+| 1 Mhz |  3907 | 0x0C19 |         0xE1D9 |
+
+How to calculate:
+1. 256 / freq = x
+2. 1 / x = res
+3. Round and convert to hex
+   
+** Commands for avrdude
+
+*** Write fusebits
+=avrdude -c avrftdi -p m16 -P usb -Ulfuse:w:0xE1:m -U hfuse:w:0xD9:m=
+
+Calculated with [[https://www.engbedded.com/fusecalc/][fuse-calc]].
+
+*** Flash MCU
+=avrdude -c avrftdi -p m16 -P usb -U flash:w:file:a=
+
+This command is from windows AVRDUDESS.
+On OpenBSD see =/usr/local/share/doc/pkg_reamdes/avrdude=
+for info on flashing.
+
+
