@@ -1,4 +1,4 @@
-	;; main.asm file copind from Atmel studio
+;; File from Atmel studio
 .CSEG
 .ORG 0x000 jmp RESET ; Reset Handler
 .ORG 0x002 jmp RESET ; IRQ0 Handler
@@ -26,86 +26,85 @@
 DATA:
 	.db 0b01110111, 0b00010100, 0b01011011, 0b01011110, \
 		0b00111100, 0b01101110, 0b01101111, 0b01010100, \
-		0b01111111,	0b01111110 
+		0b01111111,	0b01111110
 
 
 RESET:
-  ;; Direction for pins A
-  ldi r16, 0b01111111
-  out DDRA, r16
-  out DDRD, r16
+	;; Direction for pins d
+	ldi r16, 0b01111111
+	out DDRD, r16
 
-  ;; Direction for other pins
-  ldi r16, 0x00
-  out DDRB, r16
-  out DDRC, r16
-  ;; out DDRD, r16
+	;; Direction for other pins
+	ldi r16, 0x00
+	out DDRA, r16
+	out DDRB, r16
+	out DDRC, r16
+	;; out DDRD, r16
 
-  ;; Setting pins A state
-  ldi r16, 0b10000000
-  out PORTA, r16
-  out PORTD, r16
+	;; Setting pins d state
+	ldi r16, 0b10000000
+	out PORTD, r16
 
-  ;; Setting state for other pins
-  ldi r16, 0xFF
-  out PORTB, r16
-  out PORTC, r16
-  ;;out PORTD, r16
+	;; Setting state for other pins
+	ldi r16, 0xFF
+	out PORTA, r16
+	out PORTB, r16
+	out PORTC, r16
+	;;out PORTD, r16
 
-  ;; Setting stack for function calls
-  ldi r16, high(RAMEND)
-  out SPH, r16
-  ldi r16, low(RAMEND)
-  out SPL, r16
+	;; Setting stack for function calls
+	ldi r16, high(RAMEND)
+	out SPH, r16
+	ldi r16, low(RAMEND)
+	out SPL, r16
 
-  ;; Setting timer:
+	;; Setting timer:
 
-  ldi r16, 0b00010000 ;Unmask OCR1A interrupt
-  out TIMSK, r16
+	ldi r16, 0b00010000 ;Unmask OCR1A interrupt
+	out TIMSK, r16
 
-  ; Setting TCNT1 TOP to OCR1A value
-  ;; 31250 = 0x7A12
-  ldi r16, 0x7A
-  out OCR1AH, r16
-  ldi r16, 0x12
-  out OCR1AL, r16
+	; Setting TCNT1 TOP to OCR1A value
+	;; 31250 = 0x7A12
+	ldi r16, 0x7A
+	out OCR1AH, r16
+	ldi r16, 0x12
+	out OCR1AL, r16
 
 
-  ;; Configuring WGM11..10
-  ldi r16, 0x00
-  out TCCR1A, r16
+	;; Configuring WGM11..10
+	ldi r16, 0x00
+	out TCCR1A, r16
 
-  ;; Configuring WGM13..12 and Prescaler 1/64
-  ldi r16, 0b00001100
-  out TCCR1B, r16
-  ;Timer is ticking there
+	;; Configuring WGM13..12 and Prescaler 1/64
+	ldi r16, 0b00001100
+	out TCCR1B, r16
+	;Timer is ticking there
 
-  ;; Ten as a constant in r15
-  ldi r16, 10
-  mov r15, r16
+	;; Ten as a constant in r15
+	ldi r16, 10
+	mov r15, r16
 
-  ;; Zero as a constant in r14
-  clr r16
-  mov r14, r16
-  clr r16  ;; Just in case
+	;; Zero as a constant in r14
+	clr r16
+	mov r14, r16
+	clr r16	;; Just in case
 
-  SEI ;; INTERRUPTS global enable
-  
-  rjmp start
+	SEI ;; INTERRUPTS global enable
+
+	rjmp start
 ; Replace with your application code
 start:
-    sbrc r17, 0x00
+		sbrc r17, 0x00
 	rcall COUNT
-    rjmp start
+		rjmp start
 
 TIM1_COMPA:
-  sbr r17, 0x01
-  reti
+	sbr r17, 0x01
+	reti
 
 COUNT:
 	;; increment register and index array
-	inc r18 
-	
+	inc r18
 	cpse r18, r15
 	rjmp COUNT_IF_NOT_ZERO
 	clr r18
@@ -114,11 +113,11 @@ COUNT:
 	ldi ZL, low(DATA*2)
 	add ZL, r18
 	adc ZH, r14 ;; zero in r14
-	lpm r20, Z 
+	lpm r20, Z
 	;;in r19, PINA
 	in r19, PIND
 
-	;; Mask r19 
+	;; Mask r19
 	andi r19, 0b10000000
 	or r19, r20
 
