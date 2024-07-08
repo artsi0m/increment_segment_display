@@ -1,13 +1,13 @@
 * increment segment display
 
-Assembly project created in Atmel Studio and
+Assembly file created in Atmel Studio and
 flashed on Atmega16 on Pinboard2 Rev 2. It used one of the atmega
 timers, and port d to supply data into 7seg display.  It is important
 to note, that in original solution frequency of 8MHz was used and on
 gas version I will try to change it to 1Mhz. 8bit Timer/Counter1 was
 used.
 
-I plan to port this solution from atmel studio to
+I plan to port this code from atmel studio to
 traditional +emacs+ unix (OpenBSD) environment + plus switch to lower frequency
 of MCU.
 

@@ -11,3 +11,10 @@
 *.hex
 *.map
 *.srec
+
+#Build Directories
+[Dd]ebug/
+[Rr]elease/
+
+#User Specific Files
+*.atsuo
