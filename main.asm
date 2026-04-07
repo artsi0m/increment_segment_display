@@ -1,26 +1,48 @@
-;; File from Atmel studio
-.CSEG
-.ORG 0x000 jmp RESET ; Reset Handler
-.ORG 0x002 jmp RESET ; IRQ0 Handler
-.ORG 0x004 jmp RESET ; IRQ1 Handler
-.ORG 0x006 jmp RESET ; Timer2 Compare Handler
-.ORG 0x008 jmp RESET ; Timer2 Overflow Handler
-.ORG 0x00A jmp RESET ; Timer1 Capture Handler
-.ORG 0x00C jmp TIM1_COMPA ; Timer1 CompareA Handler
-.ORG 0x00E jmp RESET ; Timer1 CompareB Handler
-.ORG 0x010 jmp RESET ; Timer1 Overflow Handler
-.ORG 0x012 jmp RESET ; Timer0 Overflow Handler
-.ORG 0x014 jmp RESET ; SPI Transfer Complete Handler
-.ORG 0x016 jmp RESET ; USART RX Complete Handler
-.ORG 0x018 jmp RESET ; UDR Empty Handler
-.ORG 0x01A jmp RESET ; USART TX Complete Handler
-.ORG 0x01C jmp RESET ; ADC Conversion Complete Handler
-.ORG 0x01E jmp RESET ; EEPROM Ready Handler
-.ORG 0x020 jmp RESET ; Analog Comparator Handler
-.ORG 0x022 jmp RESET ; Two-wire Serial Interface Handler
-.ORG 0x024 jmp RESET ; IRQ2 Handler
-.ORG 0x026 jmp RESET ; Timer0 Compare Handler
-.ORG 0x028 jmp RESET ; Store Program Memory Ready Handler
+.device ATMega16
+
+.cseg
+.org 0x000 ; Reset Handler
+	jmp RESET 
+.ORG 0x002 ; IRQ0 Handler
+	jmp RESET
+.ORG 0x004 ; IRQ1 Handler
+	jmp RESET 
+.ORG 0x006 ; Timer2 Compare Handler
+	jmp RESET 
+.ORG 0x008 ; Timer2 Overflow Handler
+	jmp RESET 
+.ORG 0x00A ; Timer1 Capture Handler
+	jmp RESET 
+.ORG 0x00C ; Timer1 CompareA Handler
+	jmp TIM1_COMPA
+.ORG 0x00E ; Timer1 CompareB Handler
+	jmp RESET
+.ORG 0x010 ; Timer1 Overflow Handler
+	jmp RESET 
+.ORG 0x012 ; Timer0 Overflow Handler
+	jmp RESET 
+.ORG 0x014 ; SPI Transfer Complete Handler
+	jmp RESET 
+.ORG 0x016 ; USART RX Complete Handler
+	jmp RESET 
+.ORG 0x018 ; UDR Empty Handler
+	jmp RESET 
+.ORG 0x01A ; USART TX Complete Handler
+	jmp RESET 
+.ORG 0x01C ; ADC Conversion Complete Handler
+	jmp RESET 
+.ORG 0x01E ; EEPROM Ready Handler
+	jmp RESET
+.ORG 0x020 ; Analog Comparator Handler
+	jmp RESET
+.ORG 0x022 ; Two-wire Serial Interface Handler
+	jmp RESET
+.ORG 0x024 ; IRQ2 Handler
+	jmp RESET
+.ORG 0x026 ; Timer0 Compare Handler
+	jmp RESET
+.ORG 0x028 ; Store Program Memory Ready Handler
+	jmp RESET 
 
 
 DATA:
