@@ -1,4 +1,4 @@
 # -*- mode: makefile-gmake; -*-
 
-main.asm.hex: main.asm
+main.hex: main.asm
 	avra $<
