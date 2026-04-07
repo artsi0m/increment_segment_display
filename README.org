@@ -8,7 +8,7 @@ gas version I will try to change it to 1Mhz. 8bit Timer/Counter1 was
 used.
 
 I plan to port this code from atmel studio to
-traditional +emacs+ unix (OpenBSD) environment + plus switch to lower frequency
+traditional +emacs+ unix-like (+OpenBSD+ Gentoo) environment + plus switch to lower frequency
 of MCU.
 
 ** Files
