@@ -1,0 +1,16 @@
+* Building increment_segment_display on Gentoo
+** DONE Installing avra and avrdude
+:LOGBOOK:
+CLOCK: [2026-04-07 Tue 21:04]--[2026-04-07 Tue 21:20] =>  0:16
+:END:
+** Makefile
+:LOGBOOK:
+CLOCK: [2026-04-07 Tue 21:23]--[2026-04-07 Tue 21:37] =>  0:14
+:END:
+** Rewriting assembly source file
+:LOGBOOK:
+CLOCK: [2026-04-07 Tue 21:38]--[2026-04-07 Tue 22:12] =>  0:34
+:END:
+
+Found example:
+https://gist.github.com/mhitza/8a4608f4dfdec20d3879
