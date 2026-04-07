@@ -1,5 +1,5 @@
-.device ATMega16
-
+.include "m16def.inc"
+	
 .cseg
 .org 0x000 ; Reset Handler
 	jmp RESET 
