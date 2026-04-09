@@ -3,14 +3,30 @@
 :LOGBOOK:
 CLOCK: [2026-04-07 Tue 21:04]--[2026-04-07 Tue 21:20] =>  0:16
 :END:
+
 ** Makefile
 :LOGBOOK:
 CLOCK: [2026-04-07 Tue 21:23]--[2026-04-07 Tue 21:37] =>  0:14
 :END:
-** Rewriting assembly source file
+
+** DONE Rewriting assembly source file
 :LOGBOOK:
 CLOCK: [2026-04-07 Tue 21:38]--[2026-04-07 Tue 22:12] =>  0:34
 :END:
 
 Found example:
 https://gist.github.com/mhitza/8a4608f4dfdec20d3879
+
+** DONE Writing fusebits, flashing
+:LOGBOOK:
+CLOCK: [2026-04-09 Thu 20:53]--[2026-04-09 Thu 21:26] =>  0:33
+CLOCK: [2026-04-09 Thu 20:08]--[2026-04-09 Thu 20:41] =>  0:33
+:END:
+
+Don't forget to enable pwr on pinboard.
+
+** Connecting pins
+:LOGBOOK:
+CLOCK: [2026-04-09 Thu 21:51]--[2026-04-09 Thu 22:00] =>  0:09
+CLOCK: [2026-04-09 Thu 20:41]--[2026-04-09 Thu 20:53] =>  0:12
+:END:
