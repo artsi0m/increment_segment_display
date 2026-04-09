@@ -1,10 +1,11 @@
-### Emacs ###
 # -*- mode: gitignore; -*-
+# Emacs backup files
 *~
 \#*\#
 
 #Build Results
 *.o
+*.obj
 *.d
 *.eep
 *.elf
