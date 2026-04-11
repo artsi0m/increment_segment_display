@@ -9,4 +9,7 @@ fuse:
 flash: main.hex
 	avrdude -c avrftdi -p m16 -P /dev/serial/by-id/usb-FTDI_USB__-__Serial_Converter_FT9RN7V1-if01-port0  -U flash:w:main.hex:a
 
-.PHONY: fuse flash
+clean:
+	rm main.hex main.eep.hex main.obj
+
+.PHONY: fuse flash clean
